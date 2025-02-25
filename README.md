@@ -66,7 +66,8 @@ bool esTextoPlano(const char* archivo) {
 
     char c;
     while (entrada.get(c)) {
-        if (c == '\0' || (c < 32 && c != '\t' && c != '\n' && c != '\r')) {
+        unsigned char uc = static_cast<unsigned char>(c);
+        if (uc == 0 || (uc < 32 && uc != '\t' && uc != '\n' && uc != '\r' && uc != ' ')) {
             entrada.close();
             return false; // Es binario
         }
@@ -76,6 +77,7 @@ bool esTextoPlano(const char* archivo) {
     return true; // Es texto plano
 }
 ```
+- 
 ---
 
 ---
