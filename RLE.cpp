@@ -42,7 +42,7 @@ std::string descomprimirRLE(const std::string& texto) {
     char letra = '\0';
 
     for (int i = 0; i < longitud; i++) {
-        if (isalpha(texto[i]) || isspace(texto[i])) {
+        if (!isdigit(texto[i])) {
             letra = texto[i];  // Guarda la letra o el espacio
         } 
         else if (isdigit(texto[i])) {
